@@ -109,4 +109,24 @@ trait MetableTrait
             }
         }
     }
+
+    public function getMeta($key = null)
+    {
+        if (is_null($key)) {
+            return $this->metas;
+        }
+
+        if (is_string($key)) {
+            return $this->metas->firstWhere('key', $key);
+        }
+
+        if (is_array($key)) {
+            return $this->metas->whereIn('key', $key);
+        }
+    }
+
+    public function getFirstMeta()
+    {
+        return $this->metas->first();
+    }
 }

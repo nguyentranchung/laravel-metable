@@ -67,6 +67,18 @@ $post->deleteMetas();
 $post->deleteAllMetas();
 ```
 
+### Get Meta
+```php
+// get all metas
+$post->getMeta();
+
+// get meta with key
+$post->getMeta('key1']);
+
+// get multi meta with keys
+$post->getMeta(['key1', 'key2', 'key3']);
+```
+
 ## Eager Loading
 
 When you need to retrive multiple results from your model, you can eager load `metas`
