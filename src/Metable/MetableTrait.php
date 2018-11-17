@@ -125,6 +125,11 @@ trait MetableTrait
         }
     }
 
+    public function getMetaValue($key)
+    {
+        return $this->getMeta($key)->value;
+    }
+
     public function getFirstMeta()
     {
         return $this->metas->first();

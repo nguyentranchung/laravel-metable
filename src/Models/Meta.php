@@ -17,4 +17,20 @@ class Meta extends Model
     {
         return $this->morphTo();
     }
+
+    public function getValueAttribute($value)
+    {
+        if (in_array($this->type, ['array', 'object'])) {
+            return json_decode(json_decode($value));
+        }
+        return $this->attributes['value'];
+    }
+
+    public function setValueAttribute($value)
+    {
+        if (in_array($this->type, ['array', 'object'])) {
+            return json_encode($this->attributes['value']);
+        }
+        return $this->attributes['value'];
+    }
 }
