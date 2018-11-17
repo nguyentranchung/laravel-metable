@@ -127,7 +127,7 @@ trait MetableTrait
 
     public function getMetaValue($key)
     {
-        return $this->getMeta($key)->value;
+        return is_string($key) ? $this->getMeta($key)->value : null;
     }
 
     public function getFirstMeta()
