@@ -71,22 +71,22 @@ trait MetableTrait
         }
     }
 
-    public function unsetMeta($key)
+    public function unsetMeta($keys)
     {
-        $type = gettype($key);
+        $type = gettype($keys);
         switch ($type) {
             case 'string':
-                $this->setMetaSingle($key, null, true);
+                $this->setMetaSingle($keys, null, true);
                 break;
             case 'array':
-                foreach ($key as $k) {
-                    $this->setMetaSingle($k, null, true);
+                foreach ($keys as $key) {
+                    $this->setMetaSingle($key, null, true);
                 }
                 break;
         }
     }
 
-    protected function setMetaSingle($key, $value = null, $delete = false)
+    public function setMetaSingle($key, $value = null, $delete = false)
     {
         if ($delete) {
             $this->deleteKeys[] = $key;
@@ -101,7 +101,7 @@ trait MetableTrait
         }
     }
 
-    protected function setMetaArray($metas)
+    public function setMetaArray($metas)
     {
         if (is_array($metas)) {
             foreach ($metas as $key => $value) {
