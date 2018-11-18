@@ -73,7 +73,7 @@ $post->deleteAllMetas();
 $post->getMeta();
 
 // get meta with key
-$post->getMeta('key1']);
+$post->getMeta('key1');
 
 // get multi meta with keys
 $post->getMeta(['key1', 'key2', 'key3']);
