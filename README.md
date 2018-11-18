@@ -77,6 +77,9 @@ $post->getMeta('key1');
 
 // get multi meta with keys
 $post->getMeta(['key1', 'key2', 'key3']);
+
+// Get value of key, only string key input
+$post->getMetaValue('key1');
 ```
 
 ## Eager Loading
