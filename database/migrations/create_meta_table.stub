@@ -11,7 +11,7 @@ class CreateMetaTable extends Migration
      */
     public function up()
     {
-        Schema::create(config('metable.meta_model', 'metas'), function (Blueprint $table) {
+        Schema::create(config('metable.meta_table', 'metas'), function (Blueprint $table) {
             $table->increments('id');
             $table->morphs('model');
             $table->string('key', 191)->index();
@@ -26,6 +26,6 @@ class CreateMetaTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists(config('metable.meta_model', 'metas'));
+        Schema::dropIfExists(config('metable.meta_table', 'metas'));
     }
 }
